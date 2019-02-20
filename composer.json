@@ -1,0 +1,15 @@
+{
+    "name": "michalhalas/adminlte-twig",
+    "description": "Twig implementation for AdminLTE 2",
+    "type": "library",
+    "require": {
+        "twig/twig": "^2.6"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "michalhalas",
+            "email": "michal.halas@epicode.net"
+        }
+    ]
+}
