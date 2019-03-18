@@ -1,5 +1,4 @@
 {% extends '@AdminLTE/layout.html.twig' %}
-
 {% block body %}
     <div class="wrapper">
         {% include '@AdminLTE/navigation/navigation.html.twig' %}
@@ -7,7 +6,14 @@
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             {% include'@AdminLTE/content/header.html.twig' %}
-            {% include'@AdminLTE/content/main.html.twig' %}
+            <!-- Main content -->
+            <div class="content">
+                <div class="container-fluid">
+                    {% block content  '' %}
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
         {% include '@AdminLTE/footer/footer.html.twig' %}

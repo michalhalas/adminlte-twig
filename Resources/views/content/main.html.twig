@@ -1,25 +1,7 @@
 <!-- Main content -->
 <div class="content">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Title</h3>
-                        {% include '@AdminLTE/card/tools.html.twig' with {buttons: [
-                            {icon: 'minus', widget: 'collapse', title: 'Collapse'}
-                        ]} %}
-                    </div>
-                    <div class="card-body">
-                        <div id="root"></div>
-                    </div>
-                    <!-- /.card-body -->
-                </div>
-                <!-- /.card -->
-            </div>
-            <!-- /.col-md-6 -->
-        </div>
-        <!-- /.row -->
+        {% block content  '' %}
     </div>
     <!-- /.container-fluid -->
 </div>

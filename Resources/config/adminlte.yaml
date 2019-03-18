@@ -1,0 +1,6 @@
+services:
+    mh.admin_lte.twig.admin_lteextension:
+        class: MH\AdminLTE\Twig\AdminLTEExtension
+        arguments: ['@service_container']
+        tags:
+        - { name: twig.extension }

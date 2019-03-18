@@ -1,0 +1,16 @@
+{% set class = ['card']
+    |merge([color|default() ? 'card-' ~ color : null])
+    |merge([is_outline ? 'card-outline' : null])
+%}
+
+<div class="{{ class|join(' ') }}">
+    <div class="card-header">
+        <h3 class="card-title">{{ title|default('Title') }}</h3>
+        {% include '@AdminLTE/card/tools.html.twig' with {buttons: buttons} %}
+    </div>
+    <div class="card-body">
+        {% block card_body '' %}
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- /.card -->
