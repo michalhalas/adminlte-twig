@@ -8,7 +8,7 @@
 
 namespace MH\AdminLTE\Twig;
 
-use MH\AdminLTE\Navigation\Sidebar;
+use MH\AdminLTE\Navigation\AbstractSidebar;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
@@ -41,8 +41,7 @@ class AdminLTEExtension extends AbstractExtension
     public function getSidebarMenu()
     {
         $sidebarClass = $this->container->getParameter('admin_lte.navigation.sidebar');
-        // TODO powinien tutaj się pojawić interface zamiast klasy
-        /** @var Sidebar $sidebar */
+        /** @var AbstractSidebar $sidebar */
         $sidebar = new $sidebarClass();
         return $sidebar->getMenu();
     }
