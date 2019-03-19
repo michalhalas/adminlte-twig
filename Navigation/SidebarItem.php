@@ -44,7 +44,7 @@ class SidebarItem
      * @param string $icon
      * @param string $voter
      */
-    public function __construct(string $name, string $route, string $icon, string $voter = null)
+    public function __construct(string $name, string $icon, string $route = '#', string $voter = null)
     {
         $this->name = $name;
         $this->route = $route;
@@ -58,15 +58,17 @@ class SidebarItem
      */
     public function getChildren(): array
     {
-        return $this->children;
+        return $this->children->toArray();
     }
 
     /**
      * @param SidebarItem $child
+     * @return SidebarItem
      */
     public function addChild(SidebarItem $child)
     {
         $this->children->add($child);
+        return $this;
     }
 
     /**

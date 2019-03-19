@@ -1,8 +1,15 @@
 {% if not item.voter or is_granted(item.voter) %}
-    <li class="nav-item">
+    <li class="nav-item{% if item.children is not empty %} has-treeview{% endif %}">
         <a href="{{ item.route }}" class="nav-link">
             <i class="nav-icon fa fa-{{ item.icon }}"></i>
-            <p>{{ item.name }}</p>
+            <p>{{ item.name }}{% if item.children is not empty %}<i class="right fa fa-angle-left"></i>{% endif %}</p>
         </a>
+        {% if item.children is not empty %}
+            <ul class="nav nav-treeview" style="display: none;">
+                {% for child in item.children %}
+                    {% include '@AdminLTE/aside/aside-menu-item.html.twig' with {item: child} %}
+                {% endfor %}
+            </ul>
+        {% endif %}
     </li>
 {% endif %}

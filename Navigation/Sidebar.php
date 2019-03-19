@@ -13,7 +13,10 @@ class Sidebar extends AbstractSidebar
 {
     protected function generateMenu(): void
     {
-        $this->add(new SidebarItem('Single', '#', 'calendar'));
-        $this->add(new SidebarItem('Single', '#', 'file-o'));
+        $this->add(new SidebarItem('Single', 'calendar', '#'));
+        $this->add((new SidebarItem('Single', 'file-o', '#'))
+            ->addChild(new SidebarItem('Single', 'file-o', '#'))
+            ->addChild(new SidebarItem('Single', 'file-o', '#'))
+        );
     }
 }
