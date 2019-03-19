@@ -24,11 +24,23 @@ class AdminLTEExtension extends Extension
     public function load(array $configs, ContainerBuilder $container)
     {
         $configuration = new Configuration();
-        $this->processConfiguration($configuration, $configs);
+        $config = $this->processConfiguration($configuration, $configs);
+
+        if (!empty($config['navigation'])) {
+            $this->loadNavigation($config['navigation'], $container);
+        }
+
         $loader = new YamlFileLoader(
             $container,
             new FileLocator(__DIR__ . '/../Resources/config')
         );
         $loader->load('extensions.yaml');
+    }
+
+    private function loadNavigation(array $configs, ContainerBuilder $container)
+    {
+        foreach ($configs as $name => $config) {
+            $container->setParameter($this->getAlias() . '.' . $name, $config);
+        }
     }
 }

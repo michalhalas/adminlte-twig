@@ -29,7 +29,15 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->arrayNode('navigation')
                     ->children()
-                        ->scalarNode('sidebar')->defaultValue('MH\AdminLTE\Navigation\Sidebar')->end()
+                        ->scalarNode('sidebar')
+                            ->defaultValue('MH\AdminLTE\Navigation\Sidebar')
+                                ->validate()
+                                    ->ifTrue(function ($v) {
+                                        return !class_exists($v);
+                                    })
+                                    ->thenInvalid('Specified class does not exists')
+                                ->end()
+                            ->end()
                         ->scalarNode('navigation')->defaultValue('MH\AdminLTE\Navigation\Navigation')->end()
                     ->end()
                 ->end()

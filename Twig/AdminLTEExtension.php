@@ -39,6 +39,6 @@ class AdminLTEExtension extends AbstractExtension
 
     public function test()
     {
-        return 'testrr';
+        dump($this->container);
     }
 }
