@@ -8,7 +8,7 @@
 
 namespace MH\AdminLTE\Navigation;
 
-
+//TODO klasa implementuje inferface
 class Sidebar
 {
     public function test(){

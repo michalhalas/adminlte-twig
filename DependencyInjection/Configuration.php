@@ -33,6 +33,7 @@ class Configuration implements ConfigurationInterface
                             ->defaultValue('MH\AdminLTE\Navigation\Sidebar')
                                 ->validate()
                                     ->ifTrue(function ($v) {
+                                        //TODO walidacja czy implementuje inferface
                                         return !class_exists($v);
                                     })
                                     ->thenInvalid('Specified class does not exists')

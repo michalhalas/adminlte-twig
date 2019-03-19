@@ -34,13 +34,13 @@ class AdminLTEExtension extends Extension
             $container,
             new FileLocator(__DIR__ . '/../Resources/config')
         );
-        $loader->load('extensions.yaml');
+        $loader->load('services.yaml');
     }
 
     private function loadNavigation(array $configs, ContainerBuilder $container)
     {
         foreach ($configs as $name => $config) {
-            $container->setParameter($this->getAlias() . '.' . $name, $config);
+            $container->setParameter($this->getAlias() . '.navigation.' . $name, $config);
         }
     }
 }
