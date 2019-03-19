@@ -30,6 +30,7 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('navigation')
                     ->children()
                         ->scalarNode('sidebar')->defaultValue('MH\AdminLTE\Navigation\Sidebar')->end()
+                        ->scalarNode('navigation')->defaultValue('MH\AdminLTE\Navigation\Navigation')->end()
                     ->end()
                 ->end()
             ->end();

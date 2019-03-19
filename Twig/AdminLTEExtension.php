@@ -39,7 +39,6 @@ class AdminLTEExtension extends AbstractExtension
 
     public function test()
     {
-        dump($this->container->getParameter('admin_lte.navigation.sidebar'));
         return 'testrr';
     }
 }
