@@ -1,0 +1,8 @@
+{% if not item.voter or is_granted(item.voter) %}
+    <li class="nav-item">
+        <a href="{{ item.route }}" class="nav-link">
+            <i class="nav-icon fa fa-{{ item.icon }}"></i>
+            <p>{{ item.name }}</p>
+        </a>
+    </li>
+{% endif %}

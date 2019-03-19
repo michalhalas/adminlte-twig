@@ -34,16 +34,16 @@ class AdminLTEExtension extends AbstractExtension
     public function getFunctions()
     {
         return [
-            new TwigFunction('adminlte_test', [$this, 'test'], ['is_safe' => ['html']])
+            new TwigFunction('adminlte_sidebar_menu', [$this, 'getSidebarMenu'], ['is_safe' => ['html']])
         ];
     }
 
-    public function test()
+    public function getSidebarMenu()
     {
         $sidebarClass = $this->container->getParameter('admin_lte.navigation.sidebar');
         // TODO powinien tutaj się pojawić interface zamiast klasy
         /** @var Sidebar $sidebar */
         $sidebar = new $sidebarClass();
-        return $sidebar->test();
+        return $sidebar->getMenu();
     }
 }

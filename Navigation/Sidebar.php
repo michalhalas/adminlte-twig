@@ -9,9 +9,32 @@
 namespace MH\AdminLTE\Navigation;
 
 //TODO klasa implementuje inferface
+use Doctrine\Common\Collections\ArrayCollection;
+
 class Sidebar
 {
-    public function test(){
-        return 'Hello World';
+
+    /**
+     * @var SidebarItem[]
+     */
+    private $menu;
+
+    final public function __construct()
+    {
+        $this->menu = new ArrayCollection();
+        $this->generateMenu();
+    }
+
+    protected function generateMenu(){
+        $this->add(new SidebarItem('Single', '#', 'calendar'));
+        $this->add(new SidebarItem('Single', '#', 'file-o'));
+    }
+
+    final protected function add(SidebarItem $item){
+        $this->menu->add($item);
+    }
+
+    final public function getMenu(){
+        return $this->menu;
     }
 }
